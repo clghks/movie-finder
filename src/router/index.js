@@ -11,10 +11,11 @@ import Menu from '@/components/Menu'
 //메뉴
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
-import { Navbar } from 'bootstrap-vue/es/components';
+import { BootstrapVue, IconsPlugin  } from 'bootstrap-vue';
 
 Vue.use(Router)
-Vue.use(Navbar)
+Vue.use(BootstrapVue)
+Vue.use(IconsPlugin)
 
 export default new Router({
   routes: [
