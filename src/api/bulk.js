@@ -19,15 +19,13 @@ export default {
    */
   bulkIndex (indexName, typeName, bulkDocument) {
     let reqParam = new Array();
-    let bulkFormat = {
-      index : {
-        _index : indexName,
-        _type : typeName
-      }
-    };
-    bulkFormat = JSON.stringify(bulkFormat)
     each(bulkDocument, (value, key, array) => {
-        reqParam.push(bulkFormat)
+        reqParam.push(JSON.stringify({
+          index : {
+            _index : indexName,
+            _id : value.movieCd
+          }
+        }))
         reqParam.push(value)
     });
     return this.startBulkIndex(reqParam).then((result) => {
